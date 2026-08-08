@@ -1,5 +1,6 @@
 import { Navigate, Outlet } from "react-router-dom";
 import { AdminSidebar } from "../components/AdminSidebar";
+import { AdminWatermark } from "../components/AdminWatermark";
 import { useAuth } from "../hooks/useAuth";
 
 export function AdminLayout() {
@@ -16,7 +17,8 @@ export function AdminLayout() {
   return (
     <div className="flex min-h-screen bg-brand-sky-light/30">
       <AdminSidebar />
-      <div className="min-w-0 flex-1">
+      <AdminWatermark />
+      <div className="relative z-10 min-w-0 flex-1">
         <Outlet />
       </div>
     </div>
