@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand palette — light/sky blue with a deeper blue for text & nav, soft pink as a sparing accent */
+  --color-brand-sky: #7ec8e3;
+  --color-brand-sky-light: #eaf6fc;
+  --color-brand-blue: #1d6fa5;
+  --color-brand-blue-dark: #14507a;
+  --color-brand-pink: #f2a9c4;
+  --color-brand-pink-dark: #e589ac;
+  --color-brand-ink: #1b2a38;
+  --color-brand-paper: #fbfaf7;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-brand-paper);
+  color: var(--color-brand-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand-blue-dark);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

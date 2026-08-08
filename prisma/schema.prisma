@@ -1,0 +1,101 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id           String   @id @default(cuid())
+  name         String
+  email        String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("admins")
+}
+
+model Therapist {
+  id             String         @id @default(cuid())
+  name           String
+  qualification  String
+  specialization String
+  bio            String
+  image          String?
+  active         Boolean        @default(true)
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+  appointments   Appointment[]
+  availability   Availability[]
+
+  @@map("therapists")
+}
+
+enum ServiceCategory {
+  SPEECH_THERAPY
+  AUDIOLOGY
+  STROKE_REHAB
+  HOME_BASED
+}
+
+model Service {
+  id           String          @id @default(cuid())
+  name         String
+  category     ServiceCategory
+  description  String
+  active       Boolean         @default(true)
+  createdAt    DateTime        @default(now())
+  updatedAt    DateTime        @updatedAt
+  appointments Appointment[]
+
+  @@map("services")
+}
+
+enum AppointmentStatus {
+  PENDING
+  CONFIRMED
+  COMPLETED
+  CANCELLED
+}
+
+model Appointment {
+  id                String            @id @default(cuid())
+  patientName       String
+  phone             String
+  email             String?
+  age                Int?
+  serviceId         String
+  service           Service           @relation(fields: [serviceId], references: [id])
+  therapistId       String?
+  therapist         Therapist?        @relation(fields: [therapistId], references: [id])
+  appointmentDate   DateTime          @db.Date
+  appointmentTime   String
+  homeVisit         Boolean           @default(false)
+  message           String?
+  status            AppointmentStatus @default(PENDING)
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime          @updatedAt
+
+  @@index([therapistId, appointmentDate])
+  @@index([status])
+  @@map("appointments")
+}
+
+model Availability {
+  id                  String    @id @default(cuid())
+  therapistId         String
+  therapist           Therapist @relation(fields: [therapistId], references: [id])
+  dayOfWeek           Int // 0 = Sunday .. 6 = Saturday
+  startTime           String // "09:00"
+  endTime             String // "17:00"
+  slotDurationMinutes Int       @default(30)
+  active              Boolean   @default(true)
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+
+  @@index([therapistId, dayOfWeek])
+  @@map("availability")
+}
