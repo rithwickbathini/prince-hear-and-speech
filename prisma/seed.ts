@@ -7,12 +7,13 @@ const SERVICES: { name: string; category: ServiceCategory; description: string }
   // Speech Therapy
   { name: "Speech Delay Therapy", category: "SPEECH_THERAPY", description: "Support for children who are not meeting expected speech and language milestones." },
   { name: "Articulation Disorder Therapy", category: "SPEECH_THERAPY", description: "Helping children and adults produce speech sounds more clearly." },
-  { name: "Stammering (Fluency) Therapy", category: "SPEECH_THERAPY", description: "Structured techniques to build fluency and confidence in speaking." },
+  { name: "Stammering Therapy", category: "SPEECH_THERAPY", description: "Structured techniques to build fluency and confidence in speaking." },
   { name: "Aphasia Therapy", category: "SPEECH_THERAPY", description: "Language rebuilding support for individuals affected by aphasia." },
   { name: "Apraxia of Speech Therapy", category: "SPEECH_THERAPY", description: "Targeted exercises to improve motor planning for speech." },
   { name: "Dysarthria Therapy", category: "SPEECH_THERAPY", description: "Therapy to improve clarity and strength of speech muscles." },
   { name: "Voice Disorder Therapy", category: "SPEECH_THERAPY", description: "Care for vocal strain, hoarseness, and voice quality concerns." },
   { name: "Pediatric Speech-Language Therapy", category: "SPEECH_THERAPY", description: "Comprehensive speech and language support designed for children." },
+  { name: "Fluency Therapy", category: "SPEECH_THERAPY", description: "Techniques to build smooth, natural speech flow and reduce disfluencies." },
   // Audiology
   { name: "Pure Tone Audiometry", category: "AUDIOLOGY", description: "Standard hearing test to measure the softest sounds you can hear." },
   { name: "Tympanometry", category: "AUDIOLOGY", description: "Assessment of middle ear function and eardrum movement." },
@@ -26,10 +27,11 @@ const SERVICES: { name: string; category: ServiceCategory; description: string }
   { name: "Dysarthria Therapy (Stroke Recovery)", category: "STROKE_REHAB", description: "Speech clarity rehabilitation following a stroke or neurological event." },
   { name: "Cognitive-Communication Therapy", category: "STROKE_REHAB", description: "Support for memory, attention, and communication after brain injury." },
   { name: "Swallowing (Dysphagia) Rehabilitation", category: "STROKE_REHAB", description: "Safe-swallowing strategies and exercises after stroke." },
+  { name: "Personalized Therapy Plans", category: "STROKE_REHAB", description: "Individually tailored rehabilitation plans built around each patient's recovery goals." },
   // Home-Based
   { name: "Home Speech Therapy", category: "HOME_BASED", description: "Professional speech therapy delivered in the comfort of your home." },
-  { name: "Pediatric Home Therapy", category: "HOME_BASED", description: "Child-friendly therapy sessions designed around your child's routine at home." },
   { name: "Stroke Rehabilitation at Home", category: "HOME_BASED", description: "Personalized post-stroke rehabilitation support delivered at home." },
+  { name: "Pediatric Home Therapy", category: "HOME_BASED", description: "Child-friendly therapy sessions designed around your child's routine at home." },
 ];
 
 const THERAPISTS = [

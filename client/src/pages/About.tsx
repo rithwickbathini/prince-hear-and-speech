@@ -58,7 +58,7 @@ export default function About() {
           </div>
           <img
             src={clinicAboutPhoto}
-            alt="Dr. V.S. Menon, Lead Audiologist, consulting with an elderly patient and his daughter at Princy Hear and Speech Rehab"
+            alt="Dr. Soranjali Srichandan, Senior SLP and Audiologist, consulting with a paediatric patient at Princy Hear and Speech Rehab"
             className="aspect-[4/3] w-full rounded-3xl object-cover shadow-md"
           />
         </div>
