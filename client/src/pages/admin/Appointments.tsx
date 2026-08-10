@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { ApiError } from "../../services/api";
 import { DataTable } from "../../components/DataTable";
 import { Modal } from "../../components/Modal";
@@ -8,17 +8,25 @@ import { appointmentsApi } from "../../services/appointments";
 import type { Appointment, AppointmentStatus } from "../../types";
 import { formatDisplayDate, formatDisplayTime, minDateInputValue } from "../../utils/date";
 
-const TABS: { label: string; value?: AppointmentStatus }[] = [
-  { label: "All" },
-  { label: "Pending", value: "PENDING" },
-  { label: "Confirmed", value: "CONFIRMED" },
-  { label: "Completed", value: "COMPLETED" },
-  { label: "Cancelled", value: "CANCELLED" },
+const TABS: { label: string; filter: (a: Appointment) => boolean }[] = [
+  { label: "All", filter: () => true },
+  { label: "Pending", filter: (a) => a.status === "PENDING" },
+  { label: "Confirmed", filter: (a) => a.status === "CONFIRMED" },
+  { label: "Completed", filter: (a) => a.status === "COMPLETED" },
+  { label: "Cancelled", filter: (a) => a.status === "CANCELLED" },
+  { label: "Rescheduled", filter: (a) => a.rescheduled },
 ];
 
 export default function AdminAppointments() {
-  const [tab, setTab] = useState<AppointmentStatus | undefined>(undefined);
-  const { appointments, loading, error, refresh } = useAppointments(tab);
+  const [tabIndex, setTabIndex] = useState(0);
+  const [searchId, setSearchId] = useState("");
+  const { appointments: allAppointments, loading, error, refresh } = useAppointments();
+  const appointments = useMemo(() => {
+    const byTab = allAppointments.filter(TABS[tabIndex].filter);
+    const query = searchId.trim().toLowerCase();
+    if (!query) return byTab;
+    return byTab.filter((a) => a.publicId.toLowerCase().includes(query));
+  }, [allAppointments, tabIndex, searchId]);
   const [actionError, setActionError] = useState<string | null>(null);
   const [rescheduling, setRescheduling] = useState<Appointment | null>(null);
   const [rescheduleDate, setRescheduleDate] = useState("");
@@ -101,19 +109,28 @@ export default function AdminAppointments() {
       <h1 className="text-2xl font-bold text-brand-ink">Appointments</h1>
       <p className="mt-1 text-sm text-brand-ink/60">Review, confirm, and manage patient appointment requests.</p>
 
-      <div className="mt-6 flex flex-wrap gap-2">
-        {TABS.map((t) => (
-          <button
-            key={t.label}
-            type="button"
-            onClick={() => setTab(t.value)}
-            className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
-              tab === t.value ? "bg-brand-blue text-white" : "bg-white text-brand-ink/70 hover:bg-brand-sky-light"
-            }`}
-          >
-            {t.label}
-          </button>
-        ))}
+      <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
+        <div className="flex flex-wrap gap-2">
+          {TABS.map((t, i) => (
+            <button
+              key={t.label}
+              type="button"
+              onClick={() => setTabIndex(i)}
+              className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
+                tabIndex === i ? "bg-brand-blue text-white" : "bg-white text-brand-ink/70 hover:bg-brand-sky-light"
+              }`}
+            >
+              {t.label}
+            </button>
+          ))}
+        </div>
+        <input
+          type="text"
+          value={searchId}
+          onChange={(e) => setSearchId(e.target.value)}
+          placeholder="Search by ID…"
+          className="w-full max-w-[200px] rounded-full border border-brand-sky/50 px-4 py-1.5 text-sm focus:border-brand-blue focus:outline-none"
+        />
       </div>
 
       {error && <p className="mt-4 rounded-xl bg-rose-50 p-4 text-sm text-rose-700">{error}</p>}
