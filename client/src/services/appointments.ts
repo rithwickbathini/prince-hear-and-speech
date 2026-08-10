@@ -5,7 +5,7 @@ export interface BookAppointmentInput {
   patientName: string;
   phone: string;
   email?: string;
-  age?: string;
+  age: string;
   serviceId: string;
   therapistId?: string;
   appointmentDate: string;

@@ -46,7 +46,7 @@ export const createAppointmentSchema = z.object({
     patientName: z.string().min(1, "Patient name is required."),
     phone: z.string().min(6, "Enter a valid phone number."),
     email: z.union([z.string().email(), z.literal("")]).optional(),
-    age: z.union([z.number(), z.string(), z.literal("")]).optional(),
+    age: z.union([z.number(), z.string().min(1, "Age is required.")]),
     serviceId: z.string().min(1, "Please select a service."),
     therapistId: z.union([z.string().min(1), z.literal("")]).optional(),
     appointmentDate: z.string().min(1, "Please select a date."),

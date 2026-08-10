@@ -128,6 +128,7 @@ export function AppointmentForm() {
 
     if (!form.patientName.trim()) return setStepError("Please enter the patient's name.");
     if (!isValidPhone(form.phone)) return setStepError("Please enter a valid phone number.");
+    if (!form.age.trim()) return setStepError("Please enter the patient's age.");
 
     setSubmitting(true);
     setSubmitError(null);
@@ -136,7 +137,7 @@ export function AppointmentForm() {
         patientName: form.patientName.trim(),
         phone: form.phone.trim(),
         email: form.email.trim() || undefined,
-        age: form.age.trim() || undefined,
+        age: form.age.trim(),
         serviceId: form.serviceId,
         therapistId: form.therapistId,
         appointmentDate: form.appointmentDate,
@@ -340,7 +341,7 @@ export function AppointmentForm() {
             </div>
             <div>
               <label htmlFor="patient-age" className="mb-1 block text-sm font-medium text-brand-ink">
-                Age <span className="font-normal text-brand-ink/40">(optional)</span>
+                Age
               </label>
               <input
                 id="patient-age"
@@ -350,6 +351,7 @@ export function AppointmentForm() {
                 value={form.age}
                 onChange={(e) => update("age", e.target.value)}
                 className="w-full rounded-lg border border-brand-sky/50 px-3 py-3 text-base focus:border-brand-blue"
+                required
               />
             </div>
           </div>
