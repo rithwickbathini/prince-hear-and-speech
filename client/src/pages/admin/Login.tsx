@@ -1,4 +1,4 @@
-import { Ear } from "lucide-react";
+import { Ear, Eye, EyeOff } from "lucide-react";
 import { FormEvent, useState } from "react";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "../../components/Button";
@@ -15,6 +15,7 @@ export default function AdminLogin() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   if (!loading && admin) {
     const redirectTo = (location.state as { from?: string } | null)?.from ?? "/admin/dashboard";
@@ -62,15 +63,25 @@ export default function AdminLogin() {
             </div>
             <div>
               <label htmlFor="login-password" className="mb-1 block text-sm font-medium text-brand-ink">Password</label>
-              <input
-                id="login-password"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                autoComplete="current-password"
-                className="w-full rounded-lg border border-brand-sky/50 px-3 py-3 text-base focus:border-brand-blue"
-              />
+              <div className="relative">
+                <input
+                  id="login-password"
+                  type={showPassword ? "text" : "password"}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  autoComplete="current-password"
+                  className="w-full rounded-lg border border-brand-sky/50 px-3 py-3 pr-11 text-base focus:border-brand-blue"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword((v) => !v)}
+                  aria-label={showPassword ? "Hide password" : "Show password"}
+                  className="absolute inset-y-0 right-0 flex w-11 items-center justify-center text-brand-ink/50 hover:text-brand-ink"
+                >
+                  {showPassword ? <EyeOff size={18} aria-hidden="true" /> : <Eye size={18} aria-hidden="true" />}
+                </button>
+              </div>
             </div>
             {error && <p className="text-sm text-rose-600">{error}</p>}
             <Button type="submit" disabled={submitting} className="w-full justify-center">
