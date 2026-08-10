@@ -140,7 +140,7 @@ export default function AdminTherapists() {
                 render: (t) => (
                   <button
                     onClick={() => toggleActive(t)}
-                    className={`rounded-full px-3 py-1 text-xs font-semibold ${
+                    className={`rounded-full px-3 py-2 text-xs font-semibold ${
                       t.active ? "bg-emerald-100 text-emerald-700" : "bg-brand-ink/10 text-brand-ink/50"
                     }`}
                   >
@@ -152,10 +152,10 @@ export default function AdminTherapists() {
                 header: "Actions",
                 render: (t) => (
                   <div className="-my-2 flex gap-1">
-                    <button onClick={() => openEdit(t)} className="rounded-full p-2 text-brand-blue hover:bg-brand-sky-light hover:text-brand-blue-dark" aria-label={`Edit ${t.name}`}>
+                    <button onClick={() => openEdit(t)} className="rounded-full p-3 text-brand-blue hover:bg-brand-sky-light hover:text-brand-blue-dark" aria-label={`Edit ${t.name}`}>
                       <Pencil size={15} />
                     </button>
-                    <button onClick={() => handleDelete(t)} className="rounded-full p-2 text-rose-500 hover:bg-rose-50 hover:text-rose-700" aria-label={`Delete ${t.name}`}>
+                    <button onClick={() => handleDelete(t)} className="rounded-full p-3 text-rose-500 hover:bg-rose-50 hover:text-rose-700" aria-label={`Delete ${t.name}`}>
                       <Trash2 size={15} />
                     </button>
                   </div>

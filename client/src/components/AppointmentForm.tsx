@@ -278,7 +278,7 @@ export function AppointmentForm() {
               No available times on this date. Please go back and choose a different date.
             </p>
           )}
-          <div className="grid grid-cols-3 gap-2.5 sm:grid-cols-4">
+          <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-4">
             {slots.map((slot) => (
               <button
                 key={slot}

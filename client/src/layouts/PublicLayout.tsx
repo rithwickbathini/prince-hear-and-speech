@@ -11,7 +11,7 @@ export function PublicLayout() {
   const showActionBar = pathname !== "/book-appointment";
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className={`flex min-h-screen flex-col ${showActionBar ? "pb-16 sm:pb-0" : ""}`}>
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:shadow"
@@ -19,7 +19,7 @@ export function PublicLayout() {
         Skip to content
       </a>
       <Navbar />
-      <main id="main-content" className={`flex-1 ${showActionBar ? "pb-16 sm:pb-0" : ""}`}>
+      <main id="main-content" className="flex-1">
         <Outlet />
       </main>
       <Footer />

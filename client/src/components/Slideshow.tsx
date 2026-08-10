@@ -53,7 +53,7 @@ export function Slideshow({ slides, className = "", intervalMs = 4000 }: Props) 
               onClick={() => setIndex(i)}
               aria-label={`Show slide ${i + 1} of ${slides.length}`}
               aria-current={i === index}
-              className="p-2"
+              className="p-3"
             >
               <span
                 className={`block h-2 w-2 rounded-full transition-colors ${

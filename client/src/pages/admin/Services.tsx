@@ -111,7 +111,7 @@ export default function AdminServices() {
                 render: (s) => (
                   <button
                     onClick={() => toggleActive(s)}
-                    className={`rounded-full px-3 py-1 text-xs font-semibold ${
+                    className={`rounded-full px-3 py-2 text-xs font-semibold ${
                       s.active ? "bg-emerald-100 text-emerald-700" : "bg-brand-ink/10 text-brand-ink/50"
                     }`}
                   >
@@ -123,10 +123,10 @@ export default function AdminServices() {
                 header: "Actions",
                 render: (s) => (
                   <div className="-my-2 flex gap-1">
-                    <button onClick={() => openEdit(s)} className="rounded-full p-2 text-brand-blue hover:bg-brand-sky-light hover:text-brand-blue-dark" aria-label={`Edit ${s.name}`}>
+                    <button onClick={() => openEdit(s)} className="rounded-full p-3 text-brand-blue hover:bg-brand-sky-light hover:text-brand-blue-dark" aria-label={`Edit ${s.name}`}>
                       <Pencil size={15} />
                     </button>
-                    <button onClick={() => handleDelete(s)} className="rounded-full p-2 text-rose-500 hover:bg-rose-50 hover:text-rose-700" aria-label={`Delete ${s.name}`}>
+                    <button onClick={() => handleDelete(s)} className="rounded-full p-3 text-rose-500 hover:bg-rose-50 hover:text-rose-700" aria-label={`Delete ${s.name}`}>
                       <Trash2 size={15} />
                     </button>
                   </div>

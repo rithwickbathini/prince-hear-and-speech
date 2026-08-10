@@ -128,7 +128,7 @@ export default function AdminAvailability() {
                 render: (a) => (
                   <button
                     onClick={() => toggleActive(a)}
-                    className={`rounded-full px-3 py-1 text-xs font-semibold ${
+                    className={`rounded-full px-3 py-2 text-xs font-semibold ${
                       a.active ? "bg-emerald-100 text-emerald-700" : "bg-brand-ink/10 text-brand-ink/50"
                     }`}
                   >
@@ -139,7 +139,7 @@ export default function AdminAvailability() {
               {
                 header: "Actions",
                 render: (a) => (
-                  <button onClick={() => handleDelete(a)} className="-my-2 rounded-full p-2 text-rose-500 hover:bg-rose-50 hover:text-rose-700" aria-label="Delete availability window">
+                  <button onClick={() => handleDelete(a)} className="-my-1 rounded-full p-3 text-rose-500 hover:bg-rose-50 hover:text-rose-700" aria-label="Delete availability window">
                     <Trash2 size={15} />
                   </button>
                 ),

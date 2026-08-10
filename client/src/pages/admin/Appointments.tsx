@@ -152,12 +152,12 @@ export default function AdminAppointments() {
               {
                 header: "Actions",
                 render: (a) => (
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1">
                     {a.status === "PENDING" && (
                       <button
                         disabled={savingId === a.id}
                         onClick={() => updateStatus(a.id, "CONFIRMED")}
-                        className="text-xs font-semibold text-brand-blue hover:underline disabled:opacity-50"
+                        className="rounded-md px-2 py-2 text-xs font-semibold text-brand-blue hover:underline disabled:opacity-50"
                       >
                         Confirm
                       </button>
@@ -166,7 +166,7 @@ export default function AdminAppointments() {
                       <button
                         disabled={savingId === a.id}
                         onClick={() => updateStatus(a.id, "COMPLETED")}
-                        className="text-xs font-semibold text-emerald-600 hover:underline disabled:opacity-50"
+                        className="rounded-md px-2 py-2 text-xs font-semibold text-emerald-600 hover:underline disabled:opacity-50"
                       >
                         Complete
                       </button>
@@ -176,14 +176,14 @@ export default function AdminAppointments() {
                         <button
                           disabled={savingId === a.id}
                           onClick={() => openReschedule(a)}
-                          className="text-xs font-semibold text-brand-ink/60 hover:underline disabled:opacity-50"
+                          className="rounded-md px-2 py-2 text-xs font-semibold text-brand-ink/60 hover:underline disabled:opacity-50"
                         >
                           Reschedule
                         </button>
                         <button
                           disabled={savingId === a.id}
                           onClick={() => updateStatus(a.id, "CANCELLED")}
-                          className="text-xs font-semibold text-rose-600 hover:underline disabled:opacity-50"
+                          className="rounded-md px-2 py-2 text-xs font-semibold text-rose-600 hover:underline disabled:opacity-50"
                         >
                           Cancel
                         </button>
@@ -219,7 +219,7 @@ export default function AdminAppointments() {
               {!rescheduleSlotsLoading && !rescheduleSlotsError && rescheduleSlots.length === 0 && (
                 <p className="text-sm text-brand-ink/60">No available times on this date.</p>
               )}
-              <div className="grid grid-cols-3 gap-2">
+              <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
                 {rescheduleSlots.map((slot) => (
                   <button
                     key={slot}

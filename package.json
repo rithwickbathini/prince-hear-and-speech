@@ -16,6 +16,7 @@
     "dev:server": "npm run dev -w server",
     "build": "npm run build -w client && npm run build -w server",
     "render-build": "npm run db:generate && npm run build",
+    "vercel-build": "npm run db:generate && npm run build -w client",
     "render-start": "npm run db:deploy && npm run start -w server",
     "typecheck": "npm run typecheck -w client && npm run typecheck -w server",
     "lint": "npm run lint -w client && npm run lint -w server",

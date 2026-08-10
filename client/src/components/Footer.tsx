@@ -13,7 +13,7 @@ export function Footer() {
           </Link>
           <p className="text-sm text-white/70">Empowering communication at every stage of life.</p>
           <div className="-ml-2 flex items-center gap-1 pt-1 text-white/60">
-            <span className="flex h-9 w-9 items-center justify-center" aria-hidden="true">
+            <span className="flex h-11 w-11 items-center justify-center" aria-hidden="true">
               <Facebook size={16} />
             </span>
             <a
@@ -21,11 +21,11 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Princy Hear and Speech Rehab on Instagram"
-              className="flex h-9 w-9 items-center justify-center rounded-full transition-colors hover:bg-white/10 hover:text-white"
+              className="flex h-11 w-11 items-center justify-center rounded-full transition-colors hover:bg-white/10 hover:text-white"
             >
               <Instagram size={16} />
             </a>
-            <span className="flex h-9 w-9 items-center justify-center" aria-hidden="true">
+            <span className="flex h-11 w-11 items-center justify-center" aria-hidden="true">
               <Linkedin size={16} />
             </span>
           </div>
