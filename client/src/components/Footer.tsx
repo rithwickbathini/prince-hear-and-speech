@@ -37,7 +37,7 @@ export function Footer() {
             <li><Link to="/about" className="hover:text-white">About</Link></li>
             <li><Link to="/services" className="hover:text-white">Services</Link></li>
             <li><Link to="/therapists" className="hover:text-white">Therapists</Link></li>
-            <li><Link to="/book-appointment" className="hover:text-white">Book Appointment</Link></li>
+            <li><Link to="/book-appointment" className="hover:text-white">Book Your Consultation</Link></li>
             <li><Link to="/contact" className="hover:text-white">Contact</Link></li>
           </ul>
         </div>

@@ -97,7 +97,7 @@ export default function Home() {
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:gap-4">
               <ButtonLink to="/book-appointment" size="lg" className="w-full justify-center sm:w-auto">
-                Book an Appointment
+                Book Your Consultation
               </ButtonLink>
               <ButtonLink to="/services" variant="secondary" size="lg" className="w-full justify-center sm:w-auto">
                 Explore Our Services
@@ -207,7 +207,7 @@ export default function Home() {
             Your journey toward better communication, hearing, and recovery starts here.
           </p>
           <div className="mt-8">
-            <ButtonLink to="/book-appointment" size="lg">Book an Appointment</ButtonLink>
+            <ButtonLink to="/book-appointment" size="lg">Book Your Consultation</ButtonLink>
           </div>
         </div>
       </section>

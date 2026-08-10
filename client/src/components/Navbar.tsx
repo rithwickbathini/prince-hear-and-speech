@@ -59,7 +59,7 @@ export function Navbar() {
         </div>
 
         <div className="hidden lg:block">
-          <ButtonLink to="/book-appointment">Book Appointment</ButtonLink>
+          <ButtonLink to="/book-appointment">Book Your Consultation</ButtonLink>
         </div>
 
         <button
@@ -107,7 +107,7 @@ export function Navbar() {
             </NavLink>
           ))}
           <ButtonLink to="/book-appointment" className="mt-2 justify-center" onClick={() => setOpen(false)}>
-            Book Appointment
+            Book Your Consultation
           </ButtonLink>
         </div>
       </div>

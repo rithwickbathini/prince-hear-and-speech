@@ -113,7 +113,7 @@ export default function Services() {
             Book an appointment and our team will help guide you to the right program.
           </p>
           <div className="mt-6">
-            <ButtonLink to="/book-appointment" size="lg">Book an Appointment</ButtonLink>
+            <ButtonLink to="/book-appointment" size="lg">Book Your Consultation</ButtonLink>
           </div>
         </div>
       </section>
