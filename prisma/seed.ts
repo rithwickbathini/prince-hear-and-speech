@@ -34,6 +34,12 @@ const SERVICES: { name: string; category: ServiceCategory; description: string }
 
 const THERAPISTS = [
   {
+    name: "Dr. Soranjali Srichandan",
+    qualification: "Senior SLP and Audiologist",
+    specialization: "Paediatric specialist",
+    bio: "Senior Speech-Language Pathologist and Audiologist specializing in paediatric speech, language and hearing care.",
+  },
+  {
     name: "[Therapist Name]",
     qualification: "[Qualification — e.g. M.Sc. SLP]",
     specialization: "Pediatric Speech-Language Therapy",

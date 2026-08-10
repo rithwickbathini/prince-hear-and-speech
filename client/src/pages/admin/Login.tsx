@@ -39,7 +39,7 @@ export default function AdminLogin() {
     <>
       <Seo title="Admin Login" description="Admin login for Princy Hear and Speech Rehab." />
       <div className="flex min-h-screen items-center justify-center bg-brand-sky-light px-4">
-        <Card className="w-full max-w-sm p-8">
+        <Card className="w-full max-w-sm p-6 sm:p-8">
           <div className="mb-6 flex flex-col items-center text-center">
             <span className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-brand-blue text-white">
               <Ear size={22} aria-hidden="true" />
@@ -57,7 +57,7 @@ export default function AdminLogin() {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 autoComplete="username"
-                className="w-full rounded-lg border border-brand-sky/50 px-3 py-2.5 text-sm focus:border-brand-blue"
+                className="w-full rounded-lg border border-brand-sky/50 px-3 py-3 text-base focus:border-brand-blue"
               />
             </div>
             <div>
@@ -69,7 +69,7 @@ export default function AdminLogin() {
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 autoComplete="current-password"
-                className="w-full rounded-lg border border-brand-sky/50 px-3 py-2.5 text-sm focus:border-brand-blue"
+                className="w-full rounded-lg border border-brand-sky/50 px-3 py-3 text-base focus:border-brand-blue"
               />
             </div>
             {error && <p className="text-sm text-rose-600">{error}</p>}

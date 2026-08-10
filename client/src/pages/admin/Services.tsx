@@ -122,11 +122,11 @@ export default function AdminServices() {
               {
                 header: "Actions",
                 render: (s) => (
-                  <div className="flex gap-3">
-                    <button onClick={() => openEdit(s)} className="text-brand-blue hover:text-brand-blue-dark" aria-label={`Edit ${s.name}`}>
+                  <div className="-my-2 flex gap-1">
+                    <button onClick={() => openEdit(s)} className="rounded-full p-2 text-brand-blue hover:bg-brand-sky-light hover:text-brand-blue-dark" aria-label={`Edit ${s.name}`}>
                       <Pencil size={15} />
                     </button>
-                    <button onClick={() => handleDelete(s)} className="text-rose-500 hover:text-rose-700" aria-label={`Delete ${s.name}`}>
+                    <button onClick={() => handleDelete(s)} className="rounded-full p-2 text-rose-500 hover:bg-rose-50 hover:text-rose-700" aria-label={`Delete ${s.name}`}>
                       <Trash2 size={15} />
                     </button>
                   </div>
@@ -145,7 +145,7 @@ export default function AdminServices() {
               id="service-name"
               value={form.name}
               onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
-              className="w-full rounded-lg border border-brand-sky/50 px-3 py-2.5 text-sm focus:border-brand-blue"
+              className="w-full rounded-lg border border-brand-sky/50 px-3 py-3 text-base focus:border-brand-blue"
             />
           </div>
           <div>
@@ -154,7 +154,7 @@ export default function AdminServices() {
               id="service-category"
               value={form.category}
               onChange={(e) => setForm((f) => ({ ...f, category: e.target.value as ServiceCategory }))}
-              className="w-full rounded-lg border border-brand-sky/50 px-3 py-2.5 text-sm focus:border-brand-blue"
+              className="w-full rounded-lg border border-brand-sky/50 px-3 py-3 text-base focus:border-brand-blue"
             >
               {CATEGORIES.map((category) => (
                 <option key={category} value={category}>{SERVICE_CATEGORY_LABELS[category]}</option>
@@ -168,7 +168,7 @@ export default function AdminServices() {
               rows={3}
               value={form.description}
               onChange={(e) => setForm((f) => ({ ...f, description: e.target.value }))}
-              className="w-full rounded-lg border border-brand-sky/50 px-3 py-2.5 text-sm focus:border-brand-blue"
+              className="w-full rounded-lg border border-brand-sky/50 px-3 py-3 text-base focus:border-brand-blue"
             />
           </div>
           {formError && <p className="text-sm text-rose-600">{formError}</p>}

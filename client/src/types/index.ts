@@ -21,6 +21,8 @@ export interface Therapist {
 
 export interface Appointment {
   id: string;
+  /** Public-facing 4-digit appointment ID (e.g. "0742"). */
+  publicId: string;
   patientName: string;
   phone: string;
   email?: string | null;
@@ -34,6 +36,7 @@ export interface Appointment {
   homeVisit: boolean;
   message?: string | null;
   status: AppointmentStatus;
+  rescheduled: boolean;
   createdAt: string;
 }
 

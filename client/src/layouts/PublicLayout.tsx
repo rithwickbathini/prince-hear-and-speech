@@ -1,9 +1,15 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { Footer } from "../components/Footer";
+import { MobileActionBar } from "../components/MobileActionBar";
 import { Navbar } from "../components/Navbar";
 import { WhatsAppButton } from "../components/WhatsAppButton";
 
 export function PublicLayout() {
+  const { pathname } = useLocation();
+  // The booking page already owns the bottom of the screen with its own step
+  // controls, so the quick-action bar would be redundant (and could overlap) there.
+  const showActionBar = pathname !== "/book-appointment";
+
   return (
     <div className="flex min-h-screen flex-col">
       <a
@@ -13,11 +19,12 @@ export function PublicLayout() {
         Skip to content
       </a>
       <Navbar />
-      <main id="main-content" className="flex-1">
+      <main id="main-content" className={`flex-1 ${showActionBar ? "pb-16 sm:pb-0" : ""}`}>
         <Outlet />
       </main>
       <Footer />
       <WhatsAppButton />
+      {showActionBar && <MobileActionBar />}
     </div>
   );
 }

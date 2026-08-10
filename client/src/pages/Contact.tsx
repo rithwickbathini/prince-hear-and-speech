@@ -53,37 +53,63 @@ export default function Contact() {
     <>
       <Seo title="Contact Us" description="Get in touch with Princy Hear and Speech Rehab — location, phone, hours and a contact form." />
 
-      <section className="bg-white py-16 sm:py-20">
+      <section className="bg-white py-12 sm:py-16 md:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <SectionHeading eyebrow="Get in touch" title="Contact Us" description="We're happy to answer questions before you book — reach out any way that works for you." />
 
           <div className="mt-12 grid gap-10 lg:grid-cols-2">
             <div className="space-y-6">
               <div className="grid gap-4 sm:grid-cols-2">
-                <Card className="p-5">
-                  <MapPin size={20} className="mb-2 text-brand-blue" aria-hidden="true" />
-                  <p className="text-sm font-semibold text-brand-ink">Address</p>
-                  <p className="mt-1 text-sm text-brand-ink/70">[Clinic Address]</p>
-                </Card>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Princy+Hear+and+Speech+Rehab%2C+Meena+Bhawan%2C+285-AB%2C+Nandan+Vihar%2C+Patia%2C+Bhubaneswar%2C+Odisha+751024"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block sm:col-span-2"
+                >
+                  <Card className="p-5 transition-colors hover:border-brand-blue">
+                    <MapPin size={20} className="mb-2 text-brand-blue" aria-hidden="true" />
+                    <p className="text-sm font-semibold text-brand-ink">Address</p>
+                    <p className="mt-1 text-sm text-brand-ink/70">
+                      Meena Bhawan, 285-AB, Near MedPlus Lane and Hanuman Mandir, Nandan Vihar, Patia, Bhubaneswar – 751024
+                    </p>
+                  </Card>
+                </a>
                 <Card className="p-5">
                   <Phone size={20} className="mb-2 text-brand-blue" aria-hidden="true" />
                   <p className="text-sm font-semibold text-brand-ink">Phone</p>
-                  <p className="mt-1 text-sm text-brand-ink/70">[Phone Number]</p>
+                  <p className="mt-1 text-sm text-brand-ink/70">
+                    <a href="tel:+918249964216" className="inline-block py-1 hover:text-brand-blue">8249964216</a>
+                    {" · "}
+                    <a href="tel:+918984548004" className="inline-block py-1 hover:text-brand-blue">8984548004</a>
+                  </p>
                 </Card>
                 <Card className="p-5">
                   <MessageCircle size={20} className="mb-2 text-brand-blue" aria-hidden="true" />
                   <p className="text-sm font-semibold text-brand-ink">WhatsApp</p>
-                  <p className="mt-1 text-sm text-brand-ink/70">[WhatsApp Number]</p>
+                  <p className="mt-1 text-sm text-brand-ink/70">
+                    <a
+                      href="https://wa.me/918249964216"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block py-1 hover:text-brand-blue"
+                    >
+                      8249964216
+                    </a>
+                  </p>
                 </Card>
                 <Card className="p-5">
                   <Mail size={20} className="mb-2 text-brand-blue" aria-hidden="true" />
                   <p className="text-sm font-semibold text-brand-ink">Email</p>
-                  <p className="mt-1 text-sm text-brand-ink/70">[Email Address]</p>
+                  <p className="mt-1 text-sm text-brand-ink/70">
+                    <a href="mailto:princyhearandspeechrehab@gmail.com" className="break-all hover:text-brand-blue">
+                      princyhearandspeechrehab@gmail.com
+                    </a>
+                  </p>
                 </Card>
                 <Card className="p-5 sm:col-span-2">
                   <Clock size={20} className="mb-2 text-brand-blue" aria-hidden="true" />
                   <p className="text-sm font-semibold text-brand-ink">Working Hours</p>
-                  <p className="mt-1 text-sm text-brand-ink/70">[Working Hours]</p>
+                  <p className="mt-1 text-sm text-brand-ink/70">Monday – Saturday, 9:00 AM – 7:00 PM (IST)</p>
                 </Card>
               </div>
 
@@ -97,12 +123,15 @@ export default function Contact() {
                     referrerPolicy="no-referrer-when-downgrade"
                   />
                 ) : (
-                  <div className="flex h-56 flex-col items-center justify-center gap-2 bg-brand-sky-light text-center">
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Princy+Hear+and+Speech+Rehab%2C+Meena+Bhawan%2C+285-AB%2C+Nandan+Vihar%2C+Patia%2C+Bhubaneswar%2C+Odisha+751024"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex h-56 flex-col items-center justify-center gap-2 bg-brand-sky-light text-center transition-colors hover:bg-brand-sky-light/70"
+                  >
                     <MapPin size={28} className="text-brand-blue/50" aria-hidden="true" />
-                    <p className="px-6 text-xs font-medium text-brand-blue/60">
-                      Map will appear here once VITE_GOOGLE_MAPS_URL is configured.
-                    </p>
-                  </div>
+                    <p className="px-6 text-xs font-medium text-brand-blue/60">Tap to open our location in Google Maps</p>
+                  </a>
                 )}
               </Card>
             </div>
@@ -121,7 +150,7 @@ export default function Contact() {
                       id="contact-name"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      className="w-full rounded-lg border border-brand-sky/50 px-3 py-2.5 text-sm focus:border-brand-blue"
+                      className="w-full rounded-lg border border-brand-sky/50 px-3 py-3 text-base focus:border-brand-blue"
                       required
                     />
                   </div>
@@ -133,7 +162,7 @@ export default function Contact() {
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="w-full rounded-lg border border-brand-sky/50 px-3 py-2.5 text-sm focus:border-brand-blue"
+                        className="w-full rounded-lg border border-brand-sky/50 px-3 py-3 text-base focus:border-brand-blue"
                       />
                     </div>
                     <div>
@@ -143,7 +172,7 @@ export default function Contact() {
                         type="tel"
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
-                        className="w-full rounded-lg border border-brand-sky/50 px-3 py-2.5 text-sm focus:border-brand-blue"
+                        className="w-full rounded-lg border border-brand-sky/50 px-3 py-3 text-base focus:border-brand-blue"
                       />
                     </div>
                   </div>
@@ -154,7 +183,7 @@ export default function Contact() {
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
                       rows={4}
-                      className="w-full rounded-lg border border-brand-sky/50 px-3 py-2.5 text-sm focus:border-brand-blue"
+                      className="w-full rounded-lg border border-brand-sky/50 px-3 py-3 text-base focus:border-brand-blue"
                       required
                     />
                   </div>

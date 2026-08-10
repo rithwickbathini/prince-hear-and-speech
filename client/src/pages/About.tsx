@@ -1,9 +1,9 @@
 import { Baby, Compass, Heart, Home as HomeIcon, Target, Users2 } from "lucide-react";
 import { Card } from "../components/Card";
-import { ImagePlaceholder } from "../components/ImagePlaceholder";
 import { SectionHeading } from "../components/SectionHeading";
 import { Seo } from "../components/Seo";
 import { WaveDivider } from "../components/WaveDivider";
+import clinicAboutPhoto from "../assets/photos/clinic-about.jpg";
 
 const SECTIONS = [
   {
@@ -42,13 +42,13 @@ export default function About() {
       />
 
       <section className="bg-white">
-        <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-16 sm:px-6 md:grid-cols-2 md:py-20">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-10 sm:px-6 sm:py-16 md:grid-cols-2 md:gap-12 md:py-20">
           <div>
             <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-brand-blue">About Us</p>
-            <h1 className="text-4xl font-bold text-balance text-brand-ink sm:text-5xl">
+            <h1 className="text-[28px] font-bold text-balance text-brand-ink sm:text-4xl md:text-5xl">
               About Princy Hear and Speech Rehab
             </h1>
-            <p className="mt-5 max-w-xl text-base leading-relaxed text-brand-ink/70">
+            <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-brand-ink/70 sm:mt-5 sm:text-base">
               We provide professional speech therapy, audiology and stroke rehabilitation services for children and
               adults, built on careful assessment and an individualized approach to every patient we see.
             </p>
@@ -56,16 +56,17 @@ export default function About() {
               [Clinic history, credentials and specific milestones to be added by the clinic.]
             </p>
           </div>
-          <ImagePlaceholder
-            label="Photo representing the Princy Hear and Speech Rehab clinic"
-            className="aspect-[4/3] w-full rounded-3xl"
+          <img
+            src={clinicAboutPhoto}
+            alt="Dr. V.S. Menon, Lead Audiologist, consulting with an elderly patient and his daughter at Princy Hear and Speech Rehab"
+            className="aspect-[4/3] w-full rounded-3xl object-cover shadow-md"
           />
         </div>
       </section>
 
       <WaveDivider fill="#EAF6FC" />
 
-      <section className="bg-brand-sky-light py-16 sm:py-20">
+      <section className="bg-brand-sky-light py-12 sm:py-16 md:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <SectionHeading align="center" title="How we work" className="mx-auto" />
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

@@ -25,7 +25,7 @@ function Field({
         id={id}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full rounded-lg border border-brand-sky/50 px-3 py-2.5 text-sm focus:border-brand-blue"
+        className="w-full rounded-lg border border-brand-sky/50 px-3 py-3 text-base focus:border-brand-blue"
       />
     </div>
   );
@@ -151,11 +151,11 @@ export default function AdminTherapists() {
               {
                 header: "Actions",
                 render: (t) => (
-                  <div className="flex gap-3">
-                    <button onClick={() => openEdit(t)} className="text-brand-blue hover:text-brand-blue-dark" aria-label={`Edit ${t.name}`}>
+                  <div className="-my-2 flex gap-1">
+                    <button onClick={() => openEdit(t)} className="rounded-full p-2 text-brand-blue hover:bg-brand-sky-light hover:text-brand-blue-dark" aria-label={`Edit ${t.name}`}>
                       <Pencil size={15} />
                     </button>
-                    <button onClick={() => handleDelete(t)} className="text-rose-500 hover:text-rose-700" aria-label={`Delete ${t.name}`}>
+                    <button onClick={() => handleDelete(t)} className="rounded-full p-2 text-rose-500 hover:bg-rose-50 hover:text-rose-700" aria-label={`Delete ${t.name}`}>
                       <Trash2 size={15} />
                     </button>
                   </div>
@@ -177,7 +177,7 @@ export default function AdminTherapists() {
               rows={3}
               value={form.bio}
               onChange={(e) => setForm((f) => ({ ...f, bio: e.target.value }))}
-              className="w-full rounded-lg border border-brand-sky/50 px-3 py-2.5 text-sm focus:border-brand-blue"
+              className="w-full rounded-lg border border-brand-sky/50 px-3 py-3 text-base focus:border-brand-blue"
             />
           </div>
           <Field label="Image URL (optional)" value={form.image} onChange={(v) => setForm((f) => ({ ...f, image: v }))} />

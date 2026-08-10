@@ -13,7 +13,7 @@ export default function Therapists() {
         description="Meet the therapists and audiologists at Princy Hear and Speech Rehab."
       />
 
-      <section className="bg-white py-16 sm:py-20">
+      <section className="bg-white py-12 sm:py-16 md:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <SectionHeading
             eyebrow="Our team"

@@ -159,18 +159,18 @@ export function AppointmentForm() {
 
   if (confirmed) {
     return (
-      <Card className="mx-auto max-w-xl p-8 text-center">
+      <Card className="mx-auto max-w-xl p-6 text-center sm:p-8">
         <span className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
           <Check size={26} aria-hidden="true" />
         </span>
-        <h2 className="text-2xl font-bold text-brand-ink">Appointment Request Submitted Successfully</h2>
+        <h2 className="text-xl font-bold text-brand-ink sm:text-2xl">Appointment Request Submitted Successfully</h2>
         <p className="mt-2 text-sm text-brand-ink/60">
           Our team will review your request and confirm your appointment shortly.
         </p>
         <dl className="mt-6 space-y-2 rounded-xl bg-brand-sky-light p-5 text-left text-sm">
           <div className="flex justify-between gap-4">
             <dt className="text-brand-ink/60">Appointment ID</dt>
-            <dd className="font-mono font-semibold text-brand-ink">{confirmed.id}</dd>
+            <dd className="font-mono font-semibold text-brand-ink">{confirmed.publicId}</dd>
           </div>
           <div className="flex justify-between gap-4">
             <dt className="text-brand-ink/60">Service</dt>
@@ -259,7 +259,7 @@ export function AppointmentForm() {
             min={minDateInputValue()}
             value={form.appointmentDate}
             onChange={(e) => update("appointmentDate", e.target.value)}
-            className="w-full max-w-xs rounded-lg border border-brand-sky/50 px-3 py-2.5 text-sm focus:border-brand-blue"
+            className="w-full max-w-xs rounded-lg border border-brand-sky/50 px-3 py-3 text-base focus:border-brand-blue"
           />
         </div>
       )}
@@ -309,7 +309,7 @@ export function AppointmentForm() {
                 id="patient-name"
                 value={form.patientName}
                 onChange={(e) => update("patientName", e.target.value)}
-                className="w-full rounded-lg border border-brand-sky/50 px-3 py-2.5 text-sm focus:border-brand-blue"
+                className="w-full rounded-lg border border-brand-sky/50 px-3 py-3 text-base focus:border-brand-blue"
                 required
               />
             </div>
@@ -322,7 +322,7 @@ export function AppointmentForm() {
                 type="tel"
                 value={form.phone}
                 onChange={(e) => update("phone", e.target.value)}
-                className="w-full rounded-lg border border-brand-sky/50 px-3 py-2.5 text-sm focus:border-brand-blue"
+                className="w-full rounded-lg border border-brand-sky/50 px-3 py-3 text-base focus:border-brand-blue"
                 required
               />
             </div>
@@ -335,7 +335,7 @@ export function AppointmentForm() {
                 type="email"
                 value={form.email}
                 onChange={(e) => update("email", e.target.value)}
-                className="w-full rounded-lg border border-brand-sky/50 px-3 py-2.5 text-sm focus:border-brand-blue"
+                className="w-full rounded-lg border border-brand-sky/50 px-3 py-3 text-base focus:border-brand-blue"
               />
             </div>
             <div>
@@ -349,7 +349,7 @@ export function AppointmentForm() {
                 max={120}
                 value={form.age}
                 onChange={(e) => update("age", e.target.value)}
-                className="w-full rounded-lg border border-brand-sky/50 px-3 py-2.5 text-sm focus:border-brand-blue"
+                className="w-full rounded-lg border border-brand-sky/50 px-3 py-3 text-base focus:border-brand-blue"
               />
             </div>
           </div>
@@ -386,7 +386,7 @@ export function AppointmentForm() {
               rows={3}
               value={form.message}
               onChange={(e) => update("message", e.target.value)}
-              className="w-full rounded-lg border border-brand-sky/50 px-3 py-2.5 text-sm focus:border-brand-blue"
+              className="w-full rounded-lg border border-brand-sky/50 px-3 py-3 text-base focus:border-brand-blue"
             />
           </div>
 

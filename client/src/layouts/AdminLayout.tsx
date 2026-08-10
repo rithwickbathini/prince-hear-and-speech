@@ -15,7 +15,7 @@ export function AdminLayout() {
   }
 
   return (
-    <div className="flex min-h-screen bg-brand-sky-light/30">
+    <div className="flex min-h-screen flex-col bg-brand-sky-light/30 lg:flex-row">
       <AdminSidebar />
       <AdminWatermark />
       <div className="relative z-10 min-w-0 flex-1">

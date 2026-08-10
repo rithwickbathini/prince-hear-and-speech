@@ -41,7 +41,7 @@ export default function Services() {
         description="Speech therapy, audiology, stroke rehabilitation and home-based therapy services at Princy Hear and Speech Rehab."
       />
 
-      <section className="bg-white py-16 sm:py-20">
+      <section className="bg-white py-12 sm:py-16 md:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <SectionHeading
             eyebrow="What we offer"
@@ -75,7 +75,7 @@ export default function Services() {
             <section
               key={category}
               id={meta.anchor}
-              className={`scroll-mt-20 py-16 sm:py-20 ${index % 2 === 0 ? "bg-white" : "bg-brand-sky-light"}`}
+              className={`scroll-mt-20 py-12 sm:py-16 md:py-20 ${index % 2 === 0 ? "bg-white" : "bg-brand-sky-light"}`}
             >
               <div className="mx-auto max-w-6xl px-4 sm:px-6">
                 <div className="mb-8 flex items-center gap-4">
@@ -106,7 +106,7 @@ export default function Services() {
         </div>
       )}
 
-      <section className="bg-brand-blue-dark py-16 text-center text-white sm:py-20">
+      <section className="bg-brand-blue-dark py-12 text-center text-white sm:py-16 md:py-20">
         <div className="mx-auto max-w-xl px-4 sm:px-6">
           <h2 className="text-2xl font-bold sm:text-3xl">Not sure which service is right for you?</h2>
           <p className="mt-3 text-sm text-white/75">

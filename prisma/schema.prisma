@@ -63,6 +63,8 @@ enum AppointmentStatus {
 
 model Appointment {
   id                String            @id @default(cuid())
+  /// Public-facing 4-digit appointment ID (e.g. "0742"). Distinct from the internal `id`.
+  publicId          String            @unique
   patientName       String
   phone             String
   email             String?
@@ -76,6 +78,7 @@ model Appointment {
   homeVisit         Boolean           @default(false)
   message           String?
   status            AppointmentStatus @default(PENDING)
+  rescheduled       Boolean           @default(false)
   createdAt         DateTime          @default(now())
   updatedAt         DateTime          @updatedAt
 

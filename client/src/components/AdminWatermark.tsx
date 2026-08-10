@@ -8,7 +8,7 @@ export function AdminWatermark() {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none fixed inset-y-0 right-0 left-64 z-0 flex select-none items-center justify-center overflow-hidden"
+      className="pointer-events-none fixed inset-y-0 left-0 right-0 z-0 flex select-none items-center justify-center overflow-hidden lg:left-64"
     >
       <img
         src="/logo.jpg"

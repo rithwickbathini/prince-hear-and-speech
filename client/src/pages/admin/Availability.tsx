@@ -100,7 +100,7 @@ export default function AdminAvailability() {
           value={therapistId}
           onChange={(e) => setTherapistId(e.target.value)}
           disabled={therapistsLoading}
-          className="w-full rounded-lg border border-brand-sky/50 px-3 py-2.5 text-sm focus:border-brand-blue"
+          className="w-full rounded-lg border border-brand-sky/50 px-3 py-3 text-base focus:border-brand-blue"
         >
           {therapists.map((t) => (
             <option key={t.id} value={t.id}>{t.name}</option>
@@ -139,7 +139,7 @@ export default function AdminAvailability() {
               {
                 header: "Actions",
                 render: (a) => (
-                  <button onClick={() => handleDelete(a)} className="text-rose-500 hover:text-rose-700" aria-label="Delete availability window">
+                  <button onClick={() => handleDelete(a)} className="-my-2 rounded-full p-2 text-rose-500 hover:bg-rose-50 hover:text-rose-700" aria-label="Delete availability window">
                     <Trash2 size={15} />
                   </button>
                 ),
@@ -157,7 +157,7 @@ export default function AdminAvailability() {
               id="avail-day"
               value={form.dayOfWeek}
               onChange={(e) => setForm((f) => ({ ...f, dayOfWeek: e.target.value }))}
-              className="w-full rounded-lg border border-brand-sky/50 px-3 py-2.5 text-sm focus:border-brand-blue"
+              className="w-full rounded-lg border border-brand-sky/50 px-3 py-3 text-base focus:border-brand-blue"
             >
               {DAY_LABELS.map((label, index) => (
                 <option key={label} value={index}>{label}</option>
@@ -172,7 +172,7 @@ export default function AdminAvailability() {
                 type="time"
                 value={form.startTime}
                 onChange={(e) => setForm((f) => ({ ...f, startTime: e.target.value }))}
-                className="w-full rounded-lg border border-brand-sky/50 px-3 py-2.5 text-sm focus:border-brand-blue"
+                className="w-full rounded-lg border border-brand-sky/50 px-3 py-3 text-base focus:border-brand-blue"
               />
             </div>
             <div>
@@ -182,7 +182,7 @@ export default function AdminAvailability() {
                 type="time"
                 value={form.endTime}
                 onChange={(e) => setForm((f) => ({ ...f, endTime: e.target.value }))}
-                className="w-full rounded-lg border border-brand-sky/50 px-3 py-2.5 text-sm focus:border-brand-blue"
+                className="w-full rounded-lg border border-brand-sky/50 px-3 py-3 text-base focus:border-brand-blue"
               />
             </div>
           </div>
@@ -195,7 +195,7 @@ export default function AdminAvailability() {
               step={5}
               value={form.slotDurationMinutes}
               onChange={(e) => setForm((f) => ({ ...f, slotDurationMinutes: e.target.value }))}
-              className="w-full rounded-lg border border-brand-sky/50 px-3 py-2.5 text-sm focus:border-brand-blue"
+              className="w-full rounded-lg border border-brand-sky/50 px-3 py-3 text-base focus:border-brand-blue"
             />
           </div>
           {formError && <p className="text-sm text-rose-600">{formError}</p>}

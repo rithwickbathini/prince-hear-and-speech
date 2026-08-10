@@ -5,6 +5,18 @@ export function toDateInputValue(date: Date): string {
   return `${year}-${month}-${day}`;
 }
 
+const istDateFormatter = new Intl.DateTimeFormat("en-CA", {
+  timeZone: "Asia/Kolkata",
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+});
+
+/** Today's calendar date in IST (YYYY-MM-DD), independent of the visitor's local timezone. */
+export function todayIST(): string {
+  return istDateFormatter.format(new Date());
+}
+
 export function formatDisplayDate(isoDate: string): string {
   const date = new Date(`${isoDate.slice(0, 10)}T00:00:00`);
   return date.toLocaleDateString("en-US", { weekday: "short", year: "numeric", month: "short", day: "numeric" });
@@ -19,5 +31,5 @@ export function formatDisplayTime(time: string): string {
 }
 
 export function minDateInputValue(): string {
-  return toDateInputValue(new Date());
+  return todayIST();
 }

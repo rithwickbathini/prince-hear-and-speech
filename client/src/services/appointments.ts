@@ -15,8 +15,12 @@ export interface BookAppointmentInput {
 }
 
 export const appointmentsApi = {
-  getSlots: (therapistId: string, date: string) =>
-    api.get<{ slots: string[] }>(`/appointments/slots?therapistId=${therapistId}&date=${date}`),
+  getSlots: (therapistId: string, date: string, excludeAppointmentId?: string) =>
+    api.get<{ slots: string[] }>(
+      `/appointments/slots?therapistId=${therapistId}&date=${date}${
+        excludeAppointmentId ? `&excludeAppointmentId=${excludeAppointmentId}` : ""
+      }`,
+    ),
   create: (data: BookAppointmentInput) => api.post<{ appointment: Appointment }>("/appointments", data),
   list: (status?: AppointmentStatus) =>
     api.get<{ appointments: Appointment[] }>(`/appointments${status ? `?status=${status}` : ""}`),

@@ -14,11 +14,24 @@ import {
 } from "lucide-react";
 import { ButtonLink } from "../components/Button";
 import { Card } from "../components/Card";
-import { ImagePlaceholder } from "../components/ImagePlaceholder";
 import { SectionHeading } from "../components/SectionHeading";
 import { Seo } from "../components/Seo";
 import { ServiceCard } from "../components/ServiceCard";
+import { Slideshow } from "../components/Slideshow";
 import { WaveDivider } from "../components/WaveDivider";
+import heroIllustration from "../assets/photos/hero-illustration.jpg";
+import speechTherapyWatermark from "../assets/watermarks/speech-therapy.jpg";
+import audiologyWatermark from "../assets/watermarks/audiology.jpg";
+import strokeRehabWatermark from "../assets/watermarks/stroke-rehab.jpg";
+import homeBasedSlide1 from "../assets/photos/home-based/slide-1.jpg";
+import homeBasedSlide2 from "../assets/photos/home-based/slide-2.jpg";
+import homeBasedSlide3 from "../assets/photos/home-based/slide-3.jpg";
+
+const HOME_BASED_SLIDES = [
+  { src: homeBasedSlide1, alt: "Therapist communicating with a patient using sign language during a home therapy session" },
+  { src: homeBasedSlide2, alt: "Two people signing and communicating together during a home speech therapy session" },
+  { src: homeBasedSlide3, alt: "A home-based therapist helping an elderly patient with a hand exercise ball" },
+];
 
 const SERVICE_PILLARS = [
   {
@@ -27,6 +40,7 @@ const SERVICE_PILLARS = [
     description: "One-on-one therapy for speech delay, articulation, stammering, and voice disorders — for children and adults.",
     bullets: ["Pediatric speech-language therapy", "Stammering & fluency support", "Voice & articulation therapy"],
     to: "/services#speech-therapy",
+    watermark: speechTherapyWatermark,
   },
   {
     icon: <Ear size={22} />,
@@ -34,6 +48,7 @@ const SERVICE_PILLARS = [
     description: "Complete hearing assessments and hearing aid guidance using standard diagnostic testing.",
     bullets: ["Pure tone & speech audiometry", "Tympanometry & OAE testing", "Hearing aid consultation"],
     to: "/services#audiology",
+    watermark: audiologyWatermark,
   },
   {
     icon: <HeartPulse size={22} />,
@@ -41,6 +56,7 @@ const SERVICE_PILLARS = [
     description: "Structured recovery support for communication and swallowing difficulties following a stroke.",
     bullets: ["Aphasia & apraxia rehabilitation", "Cognitive-communication therapy", "Swallowing (dysphagia) support"],
     to: "/services#stroke-rehabilitation",
+    watermark: strokeRehabWatermark,
   },
 ];
 
@@ -63,31 +79,35 @@ export default function Home() {
 
       {/* Hero */}
       <section className="bg-white">
-        <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-16 sm:px-6 md:grid-cols-2 md:py-24">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-10 sm:px-6 sm:py-16 md:grid-cols-2 md:gap-12 md:py-24">
           <div>
             <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-brand-blue">
               Princy Hear and Speech Rehab
             </p>
-            <h1 className="text-4xl font-bold text-balance leading-tight text-brand-ink sm:text-5xl">
+            <h1 className="text-[28px] font-bold text-balance leading-tight text-brand-ink sm:text-4xl md:text-5xl">
               Hear the World. Find Your Voice. Create Your Connection.
             </h1>
-            <p className="mt-5 text-lg font-semibold text-brand-blue-dark">
+            <p className="mt-4 text-base font-semibold text-brand-blue-dark sm:mt-5 sm:text-lg">
               Empowering communication at every stage of life.
             </p>
-            <p className="mt-4 max-w-xl text-base leading-relaxed text-brand-ink/70">
+            <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-brand-ink/70 sm:text-base">
               Professional <strong className="font-semibold text-brand-ink">Speech Therapy, Audiology, and Stroke
               Rehabilitation</strong> services for children and adults, with personalized care designed around
               every individual&apos;s needs.
             </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <ButtonLink to="/book-appointment" size="lg">Book an Appointment</ButtonLink>
-              <ButtonLink to="/services" variant="secondary" size="lg">Explore Our Services</ButtonLink>
+            <div className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:gap-4">
+              <ButtonLink to="/book-appointment" size="lg" className="w-full justify-center sm:w-auto">
+                Book an Appointment
+              </ButtonLink>
+              <ButtonLink to="/services" variant="secondary" size="lg" className="w-full justify-center sm:w-auto">
+                Explore Our Services
+              </ButtonLink>
             </div>
           </div>
-          <ImagePlaceholder
-            label="Photo of a therapist working with a patient at Princy Hear and Speech Rehab"
-            icon={<HeartPulse size={40} aria-hidden="true" />}
-            className="aspect-[4/3] w-full rounded-3xl"
+          <img
+            src={heroIllustration}
+            alt="Illustration of a therapist having a supportive conversation with a patient"
+            className="aspect-square w-full max-w-md rounded-3xl object-cover shadow-md md:mx-auto"
           />
         </div>
       </section>
@@ -95,7 +115,7 @@ export default function Home() {
       <WaveDivider fill="#EAF6FC" />
 
       {/* Trust / Introduction */}
-      <section className="bg-brand-sky-light py-16 sm:py-20">
+      <section className="bg-brand-sky-light py-12 sm:py-16 md:py-20">
         <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
           <SectionHeading
             align="center"
@@ -109,7 +129,7 @@ export default function Home() {
       <WaveDivider fill="#FFFFFF" flip />
 
       {/* Services overview */}
-      <section className="bg-white py-16 sm:py-20">
+      <section className="bg-white py-12 sm:py-16 md:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <SectionHeading
             align="center"
@@ -127,11 +147,11 @@ export default function Home() {
       </section>
 
       {/* Home-based therapy highlight */}
-      <section className="bg-brand-blue-dark py-16 text-white sm:py-20">
-        <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 md:grid-cols-2">
+      <section className="bg-brand-blue-dark py-12 text-white sm:py-16 md:py-20">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 sm:px-6 md:grid-cols-2 md:gap-12">
           <div>
             <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-brand-sky">Care That Comes to You</p>
-            <h2 className="text-3xl font-bold text-balance sm:text-4xl">We also provide Home-Based Therapy</h2>
+            <h2 className="text-2xl font-bold text-balance sm:text-3xl md:text-4xl">We also provide Home-Based Therapy</h2>
             <ul className="mt-6 space-y-3 text-white/85">
               <li className="flex items-start gap-3">
                 <HomeIcon size={18} className="mt-1 flex-none text-brand-sky" aria-hidden="true" />
@@ -150,16 +170,15 @@ export default function Home() {
               <ButtonLink to="/book-appointment" size="lg">Book Home-Based Therapy</ButtonLink>
             </div>
           </div>
-          <ImagePlaceholder
-            label="Photo of a home-based therapy session"
-            icon={<HomeIcon size={40} aria-hidden="true" />}
-            className="aspect-[4/3] w-full rounded-3xl bg-white/10 from-transparent via-transparent to-transparent"
+          <Slideshow
+            slides={HOME_BASED_SLIDES}
+            className="aspect-[4/3] w-full rounded-3xl shadow-md"
           />
         </div>
       </section>
 
       {/* Why choose us */}
-      <section className="bg-white py-16 sm:py-20">
+      <section className="bg-white py-12 sm:py-16 md:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <SectionHeading align="center" eyebrow="Why choose us" title="Care built around you" className="mx-auto" />
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -177,9 +196,9 @@ export default function Home() {
       <WaveDivider fill="#EAF6FC" />
 
       {/* Appointment CTA */}
-      <section className="bg-brand-sky-light py-16 text-center sm:py-20">
+      <section className="bg-brand-sky-light py-12 text-center sm:py-16 md:py-20">
         <div className="mx-auto max-w-2xl px-4 sm:px-6">
-          <h2 className="text-3xl font-bold text-balance text-brand-ink sm:text-4xl">Ready to Take the Next Step?</h2>
+          <h2 className="text-2xl font-bold text-balance text-brand-ink sm:text-3xl md:text-4xl">Ready to Take the Next Step?</h2>
           <p className="mt-4 text-base leading-relaxed text-brand-ink/70">
             Book an appointment with our team and let us help you or your loved ones move toward better
             communication, hearing and recovery.
@@ -194,29 +213,49 @@ export default function Home() {
       </section>
 
       {/* Contact preview */}
-      <section className="bg-white py-16 sm:py-20">
+      <section className="bg-white py-12 sm:py-16 md:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <SectionHeading eyebrow="Get in touch" title="Visit or contact the clinic" className="mb-10" />
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <Card className="p-5">
-              <MapPin size={20} className="mb-2 text-brand-blue" aria-hidden="true" />
-              <p className="text-sm font-semibold text-brand-ink">Location</p>
-              <p className="mt-1 text-sm text-brand-ink/70">[Clinic Address]</p>
-            </Card>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Princy+Hear+and+Speech+Rehab%2C+Meena+Bhawan%2C+285-AB%2C+Nandan+Vihar%2C+Patia%2C+Bhubaneswar%2C+Odisha+751024"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block"
+            >
+              <Card className="h-full p-5 transition-colors hover:border-brand-blue">
+                <MapPin size={20} className="mb-2 text-brand-blue" aria-hidden="true" />
+                <p className="text-sm font-semibold text-brand-ink">Location</p>
+                <p className="mt-1 text-sm text-brand-ink/70">
+                  Meena Bhawan, 285-AB, Near MedPlus Lane and Hanuman Mandir, Nandan Vihar, Patia, Bhubaneswar – 751024
+                </p>
+              </Card>
+            </a>
             <Card className="p-5">
               <Phone size={20} className="mb-2 text-brand-blue" aria-hidden="true" />
               <p className="text-sm font-semibold text-brand-ink">Phone</p>
-              <p className="mt-1 text-sm text-brand-ink/70">[Phone Number]</p>
+              <p className="mt-1 text-sm text-brand-ink/70">
+                <a href="tel:+918249964216" className="inline-block py-1 hover:text-brand-blue">8249964216</a>
+                {" · "}
+                <a href="tel:+918984548004" className="inline-block py-1 hover:text-brand-blue">8984548004</a>
+              </p>
             </Card>
             <Card className="p-5">
               <Mail size={20} className="mb-2 text-brand-blue" aria-hidden="true" />
               <p className="text-sm font-semibold text-brand-ink">Email</p>
-              <p className="mt-1 text-sm text-brand-ink/70">[Email Address]</p>
+              <p className="mt-1 text-sm text-brand-ink/70">
+                <a
+                  href="mailto:princyhearandspeechrehab@gmail.com"
+                  className="inline-block break-all py-1 hover:text-brand-blue"
+                >
+                  princyhearandspeechrehab@gmail.com
+                </a>
+              </p>
             </Card>
             <Card className="p-5">
               <ShieldCheck size={20} className="mb-2 text-brand-blue" aria-hidden="true" />
               <p className="text-sm font-semibold text-brand-ink">Working Hours</p>
-              <p className="mt-1 text-sm text-brand-ink/70">[Working Hours]</p>
+              <p className="mt-1 text-sm text-brand-ink/70">Mon – Sat, 9:00 AM – 7:00 PM (IST)</p>
             </Card>
           </div>
         </div>
