@@ -41,24 +41,6 @@ const THERAPISTS = [
     specialization: "Paediatric specialist",
     bio: "Senior Speech-Language Pathologist and Audiologist specializing in paediatric speech, language and hearing care.",
   },
-  {
-    name: "[Therapist Name]",
-    qualification: "[Qualification — e.g. M.Sc. SLP]",
-    specialization: "Pediatric Speech-Language Therapy",
-    bio: "[Short professional bio to be provided by the clinic.]",
-  },
-  {
-    name: "[Therapist Name]",
-    qualification: "[Qualification — e.g. M.Sc. Audiology]",
-    specialization: "Audiology & Hearing Aid Consultation",
-    bio: "[Short professional bio to be provided by the clinic.]",
-  },
-  {
-    name: "[Therapist Name]",
-    qualification: "[Qualification — e.g. BASLP]",
-    specialization: "Stroke & Neuro Rehabilitation",
-    bio: "[Short professional bio to be provided by the clinic.]",
-  },
 ];
 
 async function main() {
