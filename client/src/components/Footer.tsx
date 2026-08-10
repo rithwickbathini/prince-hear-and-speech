@@ -86,8 +86,9 @@ export function Footer() {
           </ul>
         </div>
       </div>
-      <div className="flex flex-col items-center justify-center gap-2 border-t border-white/10 px-4 py-5 text-center text-xs text-white/50 sm:flex-row sm:justify-between">
+      <div className="flex flex-col items-center justify-center gap-2 border-t border-white/10 px-4 py-5 text-center text-xs text-white/50 sm:flex-row">
         <span>© {new Date().getFullYear()} Princy Hear and Speech Rehab. All rights reserved.</span>
+        <span className="hidden sm:inline" aria-hidden="true">·</span>
         <Link to="/admin/login" className="hover:text-white">Admin Login</Link>
       </div>
     </footer>
