@@ -1,5 +1,5 @@
 {
-  "buildCommand": "../node_modules/.bin/prisma generate --schema=../prisma/schema.prisma && npm run build",
+  "buildCommand": "npx prisma generate --schema=../prisma/schema.prisma && npm run build",
   "outputDirectory": "dist",
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api" },
